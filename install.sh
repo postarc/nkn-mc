@@ -26,8 +26,7 @@ if [[ "$USER" == "root" ]]; then
         HOMEFOLDER="/home/$USER/nkn-node"
 fi
 sudo apt update
-sudo apt install unzip -y
-sudo apt install cpulimit 
+sudo apt install unzip cpulimit -y
 CURRENTDIR=$(pwd)
 if [ -d $HOMEFOLDER ] ; then cd $HOMEFOLDER ; else mkdir $HOMEFOLDER; cd $HOMEFOLDER; fi
 
