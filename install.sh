@@ -26,7 +26,8 @@ if [[ "$USER" == "root" ]]; then
         HOMEFOLDER="/home/$USER/nkn-node"
 fi
 sudo apt update
-sudo apt install unzip -y 
+sudo apt install unzip -y
+sudo apt install cpulimit 
 CURRENTDIR=$(pwd)
 if [ -d $HOMEFOLDER ] ; then cd $HOMEFOLDER ; else mkdir $HOMEFOLDER; cd $HOMEFOLDER; fi
 
@@ -185,7 +186,7 @@ echo $ANSWER
 if [ -z $ANSWER ] || [ $ANSWER = 'Y' ] || [ $ANSWER = 'y' ]; then
         cd $HOMEFOLDER
         wget https://nkn.org/ChainDB_pruned_latest.zip
-        unzip ChainDB_pruned_latest.zip | tr '\n' '\r'
+        sudo cpulimit -l 50 unzip ChainDB_pruned_latest.zip | tr '\n' '\r'
         rm -rf ChainDB_pruned_latest.zip
 fi       
 
