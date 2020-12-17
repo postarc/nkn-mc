@@ -186,7 +186,7 @@ echo $ANSWER
 if [ -z $ANSWER ] || [ $ANSWER = 'Y' ] || [ $ANSWER = 'y' ]; then
         cd $HOMEFOLDER
         wget https://nkn.org/ChainDB_pruned_latest.zip
-        sudo cpulimit -l 50 unzip ChainDB_pruned_latest.zip | tr '\n' '\r'
+        sudo cpulimit -l 60 unzip ChainDB_pruned_latest.zip | tr '\n' '\r'
         rm -rf ChainDB_pruned_latest.zip
 fi       
 
