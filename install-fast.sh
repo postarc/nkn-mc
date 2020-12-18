@@ -195,7 +195,7 @@ echo -e "${CYAN}For nkn.service file editing: ${BLUE}sudo nano /etc/systemd/syst
 echo -e "${CYAN}After editing nkn.service file: ${BLUE}sudo systemctl daemon-reload${NC}"
 
 cd $CURRENTDIR
-bash nkn/autoupdate.sh
+bash nkn-mc/autoupdate.sh
 rm -rf nkn
 
 secs=$((3 * 60))
