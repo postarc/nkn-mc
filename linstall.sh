@@ -40,7 +40,7 @@ sudo apt -y install curl jq
 echo -e "${CYAN}Stackscripts creating...${NC}"
 JSON_DATA="{ \"label\" : \"$SERVER_NAME\","
 JSON_DATA+='"description" : "NKN node Installing","images" : [ "linode/ubuntu16.04lts","linode/ubuntu18.04","linode/ubuntu19.10","linode/ubuntu20.04" ],'
-JSON_DATA+='"is_public" : false,"rev_note" : "Set up NKN node","script" : "#!/bin/bash\ngit clone https://github.com/postarc/nkn-mc.git\nsudo bash nkn/install.sh\nsudo systemctl restart nkn.service\n" }'
+JSON_DATA+='"is_public" : false,"rev_note" : "Set up NKN node","script" : "#!/bin/bash\ngit clone https://github.com/postarc/nkn-mc.git\nsudo bash nkn-mc/install.sh\nsudo systemctl restart nkn.service\n" }'
 echo -e "${MAG}Script Request:${NC}\n" > $LOG_FILE
 echo $JSON_DATA | jq '.' >> $LOG_FILE
 STACK_ID=$(curl -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" \
